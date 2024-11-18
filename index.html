@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ma'lumot Kiritish Formasi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Ma'lumot Kiritish</h1>
+    <form id="data-form">
+      <!-- Ism Familiya -->
+      <div class="form-group">
+        <label for="full-name">Ism Familiya</label>
+        <input type="text" id="full-name" name="full-name" placeholder="Ism va Familiyangizni kiriting" required>
+      </div>
+      
+      <!-- Tug'ilgan sana -->
+      <div class="form-group">
+        <label for="birth-date">Tug'ilgan sana</label>
+        <input type="date" id="birth-date" name="birth-date" required>
+      </div>
+      
+      <!-- Kontakt raqami -->
+      <div class="form-group">
+        <label for="phone">Kontakt raqami</label>
+        <input type="tel" id="phone" name="phone" placeholder="Asosiy telefon raqamingizni kiriting" required>
+      </div>
+      
+      <!-- Qo'shimcha raqami -->
+      <div class="form-group">
+        <label for="extra-phone">Qo'shimcha raqami</label>
+        <input type="tel" id="extra-phone" name="extra-phone" placeholder="Qo'shimcha telefon raqamingiz (agar bo'lsa)">
+      </div>
+      
+      <!-- Elektron manzil -->
+      <div class="form-group">
+        <label for="email">Elektron manzil (Gmail)</label>
+        <input type="email" id="email" name="email" placeholder="Email manzilingizni kiriting" required>
+      </div>
+      
+      <!-- Ma'lumoti -->
+      <div class="form-group">
+        <label for="education">Ma'lumoti</label>
+        <select id="education" name="education" required>
+          <option value="">Tanlang...</option>
+          <option value="oliy">Oliy</option>
+          <option value="tugallanmagan-oliy">Tugallanmagan oliy</option>
+          <option value="orta-maxsus">O'rta maxsus</option>
+          <option value="orta">O'rta</option>
+        </select>
+      </div>
+      
+      <!-- Ta'lim muassasasi -->
+      <div class="form-group" id="university-group" style="display: none;">
+        <label for="university">Ta'lim muassasasi</label>
+        <input type="text" id="university" name="university" placeholder="Qaysi ta'lim muassasasi">
+      </div>
+      
+      <!-- Til bilish darajasi -->
+      <h2>Til Bilish Darajasi</h2>
+      <div class="form-group">
+        <label for="uzbek">O'zbek tili</label>
+        <select id="uzbek" name="uzbek" required>
+          <option value="">Tanlang...</option>
+          <option value="mukammal">Mukammal</option>
+          <option value="orta">O'rta</option>
+          <option value="bilmayman">Bilmayman</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="russian">Rus tili</label>
+        <select id="russian" name="russian" required>
+          <option value="">Tanlang...</option>
+          <option value="mukammal">Mukammal</option>
+          <option value="orta">O'rta</option>
+          <option value="bilmayman">Bilmayman</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="english">Ingliz tili</label>
+        <select id="english" name="english" required>
+          <option value="">Tanlang...</option>
+          <option value="mukammal">Mukammal</option>
+          <option value="orta">O'rta</option>
+          <option value="bilmayman">Bilmayman</option>
+        </select>
+      </div>
+      
+      <!-- Kompyuter savodxonligi -->
+      <div class="form-group">
+        <label for="computer-skill">Kompyuter savodxonligi</label>
+        <select id="computer-skill" name="computer-skill" required>
+          <option value="">Tanlang...</option>
+          <option value="alo">A'lo</option>
+          <option value="yaxshi">Yaxshi</option>
+          <option value="ortacha">O'rtacha</option>
+        </select>
+      </div>
+      
+      <!-- Dasturlar -->
+      <div class="form-group">
+        <label for="software">Qaysi dasturlarni bilasiz?</label>
+        <textarea id="software" name="software" rows="4" placeholder="Dasturlarni kiriting..."></textarea>
+      </div>
+      
+      <button type="submit" class="btn">Ma'lumotni saqlash</button>
+    </form>
+  </div>
+  
+  <script>
+    // Ta'lim muassasasi maydonini ko'rsatish
+    document.getElementById('education').addEventListener('change', function() {
+      const universityGroup = document.getElementById('university-group');
+      if (this.value === 'oliy' || this.value === 'tugallanmagan-oliy') {
+        universityGroup.style.display = 'block';
+      } else {
+        universityGroup.style.display = 'none';
+      }
+    });
+
+    // Formni submit qilish
+    document.getElementById('data-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('Ma\'lumotlar muvaffaqiyatli saqlandi!');
+    });
+  </script>
+</body>
+</html>
